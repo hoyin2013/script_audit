@@ -45,7 +45,11 @@ issue(申请单)
 id(单号),title(标题),system(系统),type(数据提取|脚本执行),content(内容),send_time(发送时间),audit_time(审核时间),status(审批状态),comment(备注)
 
 ```
+## 安装说明
+```
 
+sh start.sh
+```
 
 
 

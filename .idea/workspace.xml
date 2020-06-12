@@ -25,11 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="399cb79a-1a4a-48fb-92e7-16f04c64e63e" name="Default Changelist" comment="initiate">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile.py3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+    <list default="true" id="399cb79a-1a4a-48fb-92e7-16f04c64e63e" name="Default Changelist" comment="build docker env">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +144,7 @@
       <workItem from="1591917563765" duration="793000" />
       <workItem from="1591918363980" duration="232000" />
       <workItem from="1591918648550" duration="192000" />
-      <workItem from="1591918848461" duration="10778000" />
+      <workItem from="1591918848461" duration="12144000" />
     </task>
     <task id="LOCAL-00001" summary="initiate">
       <created>1591897172678</created>
@@ -168,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591933232487</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="build docker env">
+      <created>1591945952507</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591945952507</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +206,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initiate" />
-    <option name="LAST_COMMIT_MESSAGE" value="initiate" />
+    <MESSAGE value="build docker env" />
+    <option name="LAST_COMMIT_MESSAGE" value="build docker env" />
   </component>
   <component name="WindowStateProjectService">
     <state x="605" y="276" key="#Notifications" timestamp="1591934373452">
@@ -251,10 +258,11 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="229" y="25" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1591930645533" />
-    <state x="378" y="151" key="Vcs.Push.Dialog.v2" timestamp="1591933359771">
-      <screen x="0" y="23" width="1440" height="808" />
+    <state x="378" y="151" key="Vcs.Push.Dialog.v2" timestamp="1591945954378">
+      <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1591897288750" />
     <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.808@0.23.1440.808" timestamp="1591933359771" />
+    <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1591945954378" />
   </component>
 </project>
