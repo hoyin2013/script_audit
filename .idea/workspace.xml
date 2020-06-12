@@ -27,8 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="399cb79a-1a4a-48fb-92e7-16f04c64e63e" name="Default Changelist" comment="build docker env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +143,7 @@
       <workItem from="1591917563765" duration="793000" />
       <workItem from="1591918363980" duration="232000" />
       <workItem from="1591918648550" duration="192000" />
-      <workItem from="1591918848461" duration="12144000" />
+      <workItem from="1591918848461" duration="12662000" />
     </task>
     <task id="LOCAL-00001" summary="initiate">
       <created>1591897172678</created>
@@ -174,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591945952507</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="build docker env">
+      <created>1591947164104</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591947164104</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
