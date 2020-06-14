@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>{% block title %}邮件审批信息同步系统v1.0{% endblock %}</title>
+  <title>{% block title %}数据处理系统v1.0{% endblock %}</title>
 
   <!-- Custom fonts for this template -->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -34,11 +34,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'app1:dashboard' %}">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{#{% url 'app1:dashboard' %}#}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">邮件审批信息 <sup>1.4</sup></div>
+        <div class="sidebar-brand-text mx-3">数据处理系统 <sup>1.4</sup></div>
       </a>
 
       <!-- Divider -->
@@ -46,7 +46,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'app1:dashboard' %}">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>统计信息</span></a>
       </li>
@@ -61,9 +61,14 @@
 
       <!-- 导航到首页 -->
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'app1:index' %}">
+        <a class="nav-link" href="{% url 'audit:index' %}">
           <i class="fas fa-fw fa-table"></i>
-          <span>邮件处理列表</span></a>
+          <span>任务列表</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'audit:create_issue' %}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>创建任务</span></a>
       </li>
 
       <!-- Divider -->
@@ -364,7 +369,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{% url 'app1:logout' %}">Logout</a>
+          <a class="btn btn-primary" href="{#{% url 'app1:logout' %}#}">Logout</a>
         </div>
       </div>
     </div>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header-css %}
+     <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block welcome %}{{ user }} {% endblock %}
+
+{% block content %}
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <div class="table-responsive">
+            <h2>操作成功!</h2>
+              <h2><a href="/index">返回</a></h2>
+          </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer-js %}
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/Buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/Buttons-1.6.1/js/buttons.bootstrap4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/Buttons-1.6.1/js/buttons.html5.min.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+	$('#dataTable').DataTable( {
+        order:[[0,'desc']],
+        language:{
+          url:'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Chinese.json'
+        },
+	    dom: 'Bfrtip',
+	    buttons: [
+	        'csv',
+	        'copy'
+	    ]
+	});
+
+    });
+
+    {# 放在document.readyw外面才能生效 #}
+    function execute(_url) {
+        $.ajax({
+            url: _url,
+            success: function (json) {
+                alert(json['status']);
+                window.location.reload();
+            }
+        })
+    }
+
+    function myrefresh(){
+  	window.location.reload();
+    }
+    setTimeout('myrefresh()',120000); 
+
+</script>
+{% endblock %}

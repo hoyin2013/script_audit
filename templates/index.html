@@ -9,49 +9,126 @@
 
 {% block content %}
       <div class="card shadow mb-4">
-{#        <div class="card-header py-3">#}
-{#          <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>#}
-{#        </div>#}
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              {% if group == 'DBA' %}
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th width="10%">邮件ID</th>
-                        <th width="10%">发送时间</th>
-                        <th width="15%">发送人</th>
-                        <th width="35%">主题</th>
-                        <th width="25%">附件</th>
-                        <th width="5%">状态</th>
+                        <th width="20%">标题</th>
+                        <th width="15%">申请人</th>
+                        <th width="15%">申请时间</th>
+                        <th width="40%">申请内容</th>
+                        <th width="15%">审批时间</th>
+                        <th width="10%">状态</th>
                     </tr>
                 </thead>
                 <tbody>
-                {% for e in emails %}
+                {% for e in issue_lists %}
                     <tr class="odd gradeX">
-                        <td>{{ e.id }}</td>
-                        <td>{{ e.send_date }}</td>
-                        <td>{{ e.sender }}</td>
-                        <td class="center">{{ e.subject }}</td>
+                        <td>{{e.title}}</td>
+                        <td>{{e.sender}}</td>
+                        <td>{{e.send_time}}</td>
+                        <td>{{e.content|slice:"20"}}</td>
+                        <td class="center">{{e.audit_time}}</td>
                         <td class="center">
-                            {% for attach in e.attachs %}
-                                <a href="{% url 'showsql1' sqltext=attach %} " target="_blank">{{ attach }}</a>
-                            {% endfor %}
-                        </td>
-                        <td class="center">
-                        {% if e.is_execute and e.attachs != '' %}
+                        {% if e.status == 1 %}
+                                <span class="badge badge-info">未提交</span>
+                        {% elif e.status == 2 %}
+                                <span class="badge badge-info">未审核</span>
+                        {% elif e.status == 3 %}
+                                <span class="badge badge-warning">审核一</span>
+                        {% elif e.status == 4 %}
+                            <span class="badge badge-warning"><a href="">审核二</a></span>
+                        {% elif e.status == 5 %}
                                 <span class="badge badge-success">已执行</span>
-                        {% else %}
-                            {% if status %}
-                                <span class="badge badge-warning">已审批</span>
-                            {% else %}
-                                <span class="badge badge-danger">未审批</span>
-                            {% endif %}
+                        {% elif e.status == 6 %}
+                                <span class="badge badge-secondary">已驳回</span>
                         {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+              {% elif group == 'AUDIT' %}
+                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width="20%">标题</th>
+                        <th width="15%">申请人</th>
+                        <th width="15%">申请时间</th>
+                        <th width="40%">申请内容</th>
+                        <th width="15%">审批时间</th>
+                        <th width="10%">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for e in issue_lists %}
+                    <tr class="odd gradeX">
+                        <td>{{e.title}}</td>
+                        <td>{{e.sender}}</td>
+                        <td>{{e.send_time}}</td>
+                        <td>{{e.content|slice:"20"}}</td>
+                        <td class="center">{{e.audit_time}}</td>
+                        <td class="center">
+                        {% if e.status == 1 %}
+                                <span class="badge badge-info">未提交</span>
+                        {% elif e.status == 2 %}
+                                <span class="badge badge-info">未审核</span>
+                        {% elif e.status == 3 %}
+                                <span class="badge badge-warning">审核一</span>
+                        {% elif e.status == 4 %}
+                            <span class="badge badge-warning"><a href="">审核二</a></span>
+                        {% elif e.status == 5 %}
+                                <span class="badge badge-success">已执行</span>
+                        {% elif e.status == 6 %}
+                                <span class="badge badge-secondary">已驳回</span>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+              {% elif group == 'DEV' %}
+                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width="20%">标题</th>
+                        <th width="15%">申请人</th>
+                        <th width="15%">申请时间</th>
+                        <th width="40%">申请内容</th>
+                        <th width="15%">审批时间</th>
+                        <th width="10%">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for e in issue_lists %}
+                    <tr class="odd gradeX">
+                        <td>{{e.title}}</td>
+                        <td>{{e.sender}}</td>
+                        <td>{{e.send_time}}</td>
+                        <td>{{e.content|slice:"20"}}</td>
+                        <td class="center">{{e.audit_time}}</td>
+                        <td class="center">
+                        {% if e.status == 1 %}
+                                <span class="badge badge-info">未提交</span>
+                        {% elif e.status == 2 %}
+                                <span class="badge badge-info">未审核</span>
+                        {% elif e.status == 3 %}
+                                <span class="badge badge-warning">审核一</span>
+                        {% elif e.status == 4 %}
+                            <span class="badge badge-warning"><a href="">审核二</a></span>
+                        {% elif e.status == 5 %}
+                                <span class="badge badge-success">已执行</span>
+                        {% elif e.status == 6 %}
+                                <span class="badge badge-secondary">已驳回</span>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+              {% endif %}
           </div>
         </div>
     </div>
