@@ -48,7 +48,7 @@ class Issue(models.Model):
     audit_time = models.DateTimeField('审核时间', null=True, blank=True)
     handler = models.CharField('处理人', max_length=20, null=True, blank=True)
     handle_time = models.DateTimeField('处理时间', null=True, blank=True)
-    status = models.IntegerField('工单状态', choices=STATUS_CHOISE, default=1)
+    status = models.IntegerField('工单状态', choices=STATUS_CHOISE)
     comment = models.TextField('说明', max_length=200, null=True, blank=True)
 
     class Meta:

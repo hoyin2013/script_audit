@@ -11,8 +11,37 @@
       <div class="card shadow mb-4">
         <div class="card-body">
           <div class="table-responsive">
-              {{ form.as_p }}
-              <input type='hidden' name="issue_id" value="xixihaha" />
+              <form method="post" novalidate="novalidate">
+                  <p><label for="id_title">标题:</label> <input type="text" name="title" maxlength="50" class="form-control" required="" id="id_title"></p>
+                  <p><label for="id_system">系统:</label> <select name="system" class="form-control" id="id_system">
+                      <option value="1" selected="">PaaS</option>
+                      <option value="2">收单</option>
+                      <option value="3">互联网</option>
+                      <option value="4">金盈信</option>
+                      <option value="5">风控</option>
+                      <option value="6">反洗钱</option>
+                    </select>
+                  </p>
+                  <p>
+                      <label for="id_typ">类型:</label> <select name="typ" class="form-control" id="id_typ">
+                          <option value="1" selected="">数据执行</option>
+                          <option value="2">数据提取</option>
+                        </select>
+                  </p>
+                  <p><label for="id_content">内容:</label> <textarea name="content" cols="40" rows="10" maxlength="200" class="form-control" required="" id="id_content"></textarea></p>
+
+<!--                  {{ form.as_p }}-->
+                  <p><label for="id_auditors">审核:</label> <select name="auditors" class="form-control" id="id_auditors">
+                    {% for ad in ads %}
+                      <option value="{{ad}}" selected="">{{ad}}
+                    {% endfor %}
+                    </select>
+                  </p>
+
+                  </p>
+              <input type='hidden' id="id_sender" name="sender" value="{{request.user}}" />
+              <input type='hidden' id="id_status" name="status" value="2" />
+              <input type='hidden' id="id_issue_id" name="issue_id" value="{{issue_id}}" />
                 <input type="submit" value="提交" />
             </form>
           </div>

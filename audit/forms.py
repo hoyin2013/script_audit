@@ -11,8 +11,9 @@ class IssueForm(forms.ModelForm):
         super(IssueForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
-            # self.fields['issue_id'].widget.attrs['readonly'] = True
-            # self.fields['issue_id'].widget.attrs['value'] = 'fdasfdasfdasf'
+            # self.fields['sender'].widget.attrs['readonly'] = True
+            # self.fields['sender'].initial = '张三'
+            # self.fields['auditors'].widget = forms.CheckboxSelectMultiple()
 
     # issue_id = forms.CharField(widget=forms.PasswordInput)
 
@@ -21,7 +22,7 @@ class IssueForm(forms.ModelForm):
         # issue_id 自动生成 用户+时间戳+数列
         fields = [
             # 'issue_id', 'title', 'system', 'typ', 'content', 'sender', 'auditors'
-            'title', 'system', 'typ', 'content', 'sender', 'auditors'
+            'issue_id', 'title', 'system', 'typ', 'content', 'sender', 'auditors', 'status'
         ]
 
 

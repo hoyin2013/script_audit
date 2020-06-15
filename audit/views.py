@@ -1,6 +1,6 @@
 import time
 
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, Permission, User
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -64,11 +64,9 @@ class IndexView(LoginRequiredMixin, TemplateView):
                 issue_lists = Issue.objects.filter(~Q(auditors=current_user_set))
             # print(issue_lists)
 
-            issue_id = str(current_user_set) + time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-
             context['issue_lists'] = issue_lists
             context['group'] = current_group_set
-            context['issue_id'] = issue_id
+
             # print(context)
             return context
 
@@ -77,6 +75,20 @@ class CreateIssueView(LoginRequiredMixin, CreateView):
     form_class = IssueForm
     template_name = 'issue_add.html'
     success_url = '/success'
+
+    def get_context_data(self, **kwargs):
+        context = {}
+        # 自动生成单号
+        issue_id = str(self.request.user) + time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+        context['issue_id'] = issue_id
+
+        auditors = User.objects.filter(groups__name='AUDIT')
+
+        ads = [ad.username for ad in auditors]
+        # print(ads)
+        context['ads'] = ads
+        context.update(kwargs)
+        return super().get_context_data(**context)
 
 
 class SuccessView(LoginRequiredMixin, TemplateView):
