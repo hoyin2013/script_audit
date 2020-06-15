@@ -15,7 +15,7 @@
 审批员 : 多选 (一级审核组) 
 内容 : 一大段需求描述文字,最后包含脚本的svn请求地址
 发送时间 : 系统自动生成
-按钮 : 保存/取消/发送
+按钮 : 取消/发送
 ```
 - 审批列表(开发组dev)  - 显示自己提交过的审批单
 ```
@@ -35,12 +35,6 @@
 ```
 ## 库表设计
 ```
-用户组 group
-name(名称),comment(描述)
-
-user(用户)
-name(名称),password(密码),group(用户组),realname(真名),email(邮箱),phone(电话),comment(备注)
-
 issue(申请单)
 id(单号),title(标题),system(系统),type(数据提取|脚本执行),content(内容),send_time(发送时间),audit_time(审核时间),status(审批状态),comment(备注)
 
@@ -49,6 +43,11 @@ id(单号),title(标题),system(系统),type(数据提取|脚本执行),content(
 ```
 # 执行下面命令将自动构件容器并运行
 sh start.sh
+
+# 进入容器初始化数据
+docker exec -it contaner bash
+python3 manage.py loaddata data/init.json
+
 ```
 
 
