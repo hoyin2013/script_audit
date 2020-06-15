@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from audit.forms import IssueForm, LoginForm
 from audit.models import Issue
-from django.contrib.auth import login as auth_login, logout as auth_logout,authenticate
+from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 import logging
 
 logger = logging.getLogger('__name__')

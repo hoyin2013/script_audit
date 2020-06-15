@@ -6,6 +6,7 @@ pip3 install -r /opt/script_audit/requirement/requirement.txt -i https://pypi.do
 
 WORKDIR /opt/script_audit
 
-RUN /usr/bin/python3 manage.py makemigrations && /usr/bin/python3 manage.py migrate
+RUN /usr/bin/python3 manage.py makemigrations && /usr/bin/python3 manage.py migrate && \
+echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'Abcd@1234')" | python manage.py shell
 
 ENTRYPOINT /usr/bin/python3 manage.py runserver 0.0.0.0:8000
