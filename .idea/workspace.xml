@@ -24,10 +24,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="399cb79a-1a4a-48fb-92e7-16f04c64e63e" name="Default Changelist" comment="issue list, create issue">
-      <change afterPath="$PROJECT_DIR$/data/init.json" afterDir="false" />
+    <list default="true" id="399cb79a-1a4a-48fb-92e7-16f04c64e63e" name="Default Changelist" comment="init data">
+      <change beforePath="$PROJECT_DIR$/.1.json.swp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/.gitkeep" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +155,7 @@
       <workItem from="1591918848461" duration="28692000" />
       <workItem from="1592051726856" duration="8217000" />
       <workItem from="1592134362826" duration="11759000" />
-      <workItem from="1592184068755" duration="9267000" />
+      <workItem from="1592184068755" duration="10527000" />
     </task>
     <task id="LOCAL-00001" summary="initiate">
       <created>1591897172678</created>
@@ -303,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592194641826</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="init data">
+      <created>1592199368460</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1592199368460</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +334,8 @@
     <MESSAGE value="build docker env" />
     <MESSAGE value="init static files" />
     <MESSAGE value="issue list, create issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="issue list, create issue" />
+    <MESSAGE value="init data" />
+    <option name="LAST_COMMIT_MESSAGE" value="init data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="605" y="276" key="#Notifications" timestamp="1591934373452">
@@ -394,17 +403,17 @@
     </state>
     <state x="229" y="25" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1592143085975" />
     <state x="229" y="25" key="SettingsEditor/0.23.1440.811@0.23.1440.811" timestamp="1592055545471" />
-    <state x="378" y="151" key="Vcs.Push.Dialog.v2" timestamp="1592194651987">
+    <state x="378" y="151" key="Vcs.Push.Dialog.v2" timestamp="1592199474179">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1592194651987" />
+    <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.804@0.23.1440.804" timestamp="1592199474179" />
     <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1592186967335" />
     <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.808@0.23.1440.808" timestamp="1591933359771" />
     <state x="378" y="151" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1591951241866" />
-    <state x="442" y="320" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592194632913">
+    <state x="442" y="320" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592199412173">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
-    <state x="442" y="320" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.804@0.23.1440.804" timestamp="1592194632913" />
+    <state x="442" y="320" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.804@0.23.1440.804" timestamp="1592199412173" />
     <state x="338" y="157" width="670" height="671" key="search.everywhere.popup" timestamp="1592136813932">
       <screen x="0" y="23" width="1440" height="804" />
     </state>
