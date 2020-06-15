@@ -7,6 +7,6 @@ pip3 install -r /opt/script_audit/requirement/requirement.txt -i https://pypi.do
 WORKDIR /opt/script_audit
 
 RUN /usr/bin/python3 manage.py makemigrations && /usr/bin/python3 manage.py migrate
-#RUN /usr/bin/python3 manage.py loaddata data/init.json
+RUN /usr/bin/python3 manage.py loaddata data/init.json
 
 ENTRYPOINT /usr/bin/python3 manage.py runserver 0.0.0.0:8000
