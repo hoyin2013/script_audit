@@ -23,3 +23,8 @@ class IssueForm(forms.ModelForm):
             # 'issue_id', 'title', 'system', 'typ', 'content', 'sender', 'auditors'
             'title', 'system', 'typ', 'content', 'sender', 'auditors'
         ]
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=20, required=True)
+    password = forms.CharField(max_length=50, required=True)

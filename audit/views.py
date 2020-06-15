@@ -2,16 +2,43 @@ import time
 
 from django.contrib.auth.models import Group
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from audit.forms import IssueForm
+from audit.forms import IssueForm, LoginForm
 from audit.models import Issue
+from django.contrib.auth import login as auth_login, logout as auth_logout,authenticate
+import logging
+
+logger = logging.getLogger('__name__')
 
 
-class LoginView(TemplateView):
+class LoginView(FormView):
     template_name = 'login.html'
+    form_class = LoginForm
+    redirect_field_name = 'next'
+    success_url = '/index/'
+
+    def form_valid(self, form):
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        print(username, password)
+        user = authenticate(username=username, password=password)
+        print(user)
+        if user:
+            request = self.request
+            auth_login(request, user)
+            print(user)
+            return HttpResponseRedirect('/index/')
+
+        return super().form_valid(form)
+
+
+def logout(request):
+    auth_logout(request)
+    return HttpResponseRedirect('/login/')
 
 
 class IndexView(LoginRequiredMixin, TemplateView):
