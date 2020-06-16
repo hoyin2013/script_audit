@@ -2,7 +2,8 @@ FROM xdjk/py3.8
 MAINTAINER Hoyin "kuangfeng05@163.com"
 
 RUN cd /opt && git clone https://github.com/hoyin2013/script_audit.git && \
-pip3 install -r /opt/script_audit/requirement/requirement.txt -i https://pypi.douban.com/simple
+pip3 install -r /opt/script_audit/requirement/requirement.txt -i https://pypi.douban.com/simple && \
+pip3 install --upgrade pip
 
 WORKDIR /opt/script_audit
 

@@ -52,16 +52,18 @@ class IndexView(LoginRequiredMixin, TemplateView):
             # 获取用户的组名
             current_group_set = str(Group.objects.get(user=current_user_set))
 
-            # print(type(current_group_set))
+            print(type(current_group_set), current_group_set)
 
-            if current_group_set == 'DBA':
+            if current_group_set == 'wangjd':
+                issue_lists = Issue.objects.filter(Q(audit_time__isnull=False) | ~Q(audit_time='None'))
+            elif current_group_set == 'DBA':
                 # print("I am DBA")
                 issue_lists = Issue.objects.all()
                 # print(issue_lists)
             elif current_group_set == 'DEV':
-                issue_lists = Issue.objects.filter(~Q(sender=current_user_set))
+                issue_lists = Issue.objects.filter(Q(sender=current_user_set))
             elif current_group_set == 'AUDIT':
-                issue_lists = Issue.objects.filter(~Q(auditors=current_user_set))
+                issue_lists = Issue.objects.filter(Q(auditors=current_user_set))
             # print(issue_lists)
 
             context['issue_lists'] = issue_lists

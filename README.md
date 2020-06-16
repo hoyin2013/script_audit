@@ -49,7 +49,8 @@ docker exec -it contaner bash
 python3 manage.py loaddata data/init.json
 
 ```
-
+## 初始管理员密码
+admin/Abcd@1234
 
 
 
