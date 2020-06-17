@@ -41,7 +41,7 @@ class Issue(models.Model):
     title = models.CharField('标题', max_length=100)
     system = models.IntegerField('系统', choices=CHOISE_DATABASE, default=1)
     typ = models.IntegerField('类型', choices=TYP_CHOISE, default=1)
-    content = models.TextField('内容', max_length=200)
+    content = models.TextField('内容', max_length=1000)
     sender = models.CharField('发送人', max_length=50)
     send_time = models.DateTimeField('提交时间', null=True, auto_now_add=True)
     auditors = models.CharField('审核人', max_length=50, null=True, blank=True)
