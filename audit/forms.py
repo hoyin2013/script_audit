@@ -13,7 +13,7 @@ class IssueForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'form-control'
             # self.fields['sender'].widget.attrs['readonly'] = True
             # self.fields['sender'].initial = '张三'
-            # self.fields['auditors'].widget = forms.CheckboxSelectMultiple()
+            self.fields['content'].widget = forms.Textarea()
 
     # issue_id = forms.CharField(widget=forms.PasswordInput)
 

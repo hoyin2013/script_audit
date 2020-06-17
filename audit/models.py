@@ -49,7 +49,7 @@ class Issue(models.Model):
     handler = models.CharField('处理人', max_length=50, null=True, blank=True)
     handle_time = models.DateTimeField('处理时间', null=True, blank=True)
     status = models.IntegerField('工单状态', choices=STATUS_CHOISE)
-    comment = models.TextField('说明', max_length=500, null=True, blank=True)
+    comment = models.TextField('说明', max_length=1000, null=True, blank=True)
 
     class Meta:
         verbose_name = '工单表'
