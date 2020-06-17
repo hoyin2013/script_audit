@@ -37,19 +37,19 @@ USER_CHOISE = [
 
 # 工单表
 class Issue(models.Model):
-    issue_id = models.CharField('单号', max_length=20)
-    title = models.CharField('标题', max_length=50)
+    issue_id = models.CharField('单号', max_length=50)
+    title = models.CharField('标题', max_length=100)
     system = models.IntegerField('系统', choices=CHOISE_DATABASE, default=1)
     typ = models.IntegerField('类型', choices=TYP_CHOISE, default=1)
     content = models.TextField('内容', max_length=200)
-    sender = models.CharField('发送人', max_length=20)
+    sender = models.CharField('发送人', max_length=50)
     send_time = models.DateTimeField('提交时间', null=True, auto_now_add=True)
-    auditors = models.CharField('审核人', max_length=20, null=True, blank=True)
+    auditors = models.CharField('审核人', max_length=50, null=True, blank=True)
     audit_time = models.DateTimeField('审核时间', null=True, blank=True)
-    handler = models.CharField('处理人', max_length=20, null=True, blank=True)
+    handler = models.CharField('处理人', max_length=50, null=True, blank=True)
     handle_time = models.DateTimeField('处理时间', null=True, blank=True)
     status = models.IntegerField('工单状态', choices=STATUS_CHOISE)
-    comment = models.TextField('说明', max_length=200, null=True, blank=True)
+    comment = models.TextField('说明', max_length=500, null=True, blank=True)
 
     class Meta:
         verbose_name = '工单表'

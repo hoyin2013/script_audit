@@ -37,13 +37,13 @@
                     {% endfor %}
                     </select>
                   </p>
-
-                  </p>
               <input type='hidden' id="id_sender" name="sender" value="{{request.user}}" />
               <input type='hidden' id="id_status" name="status" value="2" />
               <input type='hidden' id="id_issue_id" name="issue_id" value="{{issue_id}}" />
                 <input type="submit" value="提交" />
             </form>
+              <p>{{form.error_message}}</p>
+<!--              {{form.as_p}}-->
           </div>
         </div>
     </div>

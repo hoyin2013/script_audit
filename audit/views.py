@@ -85,9 +85,10 @@ class CreateIssueView(LoginRequiredMixin, CreateView):
         issue_id = str(self.request.user) + time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
         context['issue_id'] = issue_id
 
+        print(issue_id)
         auditors = User.objects.filter(groups__name='AUDIT')
 
-        ads = [ad.username for ad in auditors]
+        ads = [ad.username for ad in auditors if ad.username!='wangjd']
         # print(ads)
         context['ads'] = ads
         context.update(kwargs)
