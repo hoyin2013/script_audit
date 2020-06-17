@@ -50,7 +50,8 @@ python3 manage.py loaddata data/init.json
 
 ```
 ## 初始管理员密码
-admin/Abcd@1234
+- admin/Abcd@1234
+- 用户密码：Wangbl/Wbl@123456
 
 
 

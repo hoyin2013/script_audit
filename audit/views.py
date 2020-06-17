@@ -4,7 +4,7 @@ from django.contrib.auth.models import Group, Permission, User
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, FormView
+from django.views.generic import TemplateView, CreateView, FormView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from audit.forms import IssueForm, LoginForm
@@ -53,9 +53,10 @@ class IndexView(LoginRequiredMixin, TemplateView):
             current_group_set = str(Group.objects.get(user=current_user_set))
 
             print(type(current_group_set), current_group_set)
+            print(type(current_user_set), current_user_set)
 
-            if current_group_set == 'wangjd':
-                issue_lists = Issue.objects.filter(Q(audit_time__isnull=False) | ~Q(audit_time='None'))
+            if str(current_user_set) == 'wangjd':
+                issue_lists = Issue.objects.filter(~Q(status=1) & ~Q(status=2))
             elif current_group_set == 'DBA':
                 # print("I am DBA")
                 issue_lists = Issue.objects.all()
@@ -96,3 +97,6 @@ class CreateIssueView(LoginRequiredMixin, CreateView):
 class SuccessView(LoginRequiredMixin, TemplateView):
     template_name = 'success.html'
 
+
+class AuditView(LoginRequiredMixin, View):
+    pass

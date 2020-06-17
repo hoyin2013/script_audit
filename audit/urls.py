@@ -10,4 +10,5 @@ urlpatterns = [
     path('create_issue/', CreateIssueView.as_view(), name='create_issue'),
     path('success/', SuccessView.as_view(), name='success'),
     path('logout/', logout, name='logout'),
+    path('audit/', AuditView.as_view(), name='audit'),
 ]
