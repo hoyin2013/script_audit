@@ -42,16 +42,15 @@
               <input type='hidden' id="id_issue_id" name="issue_id" value="{{issue_id}}" />
                 <input type="submit" value="提交" />
             </form>
-              <p>{{form.error_message}}</p>
-              {{form.as_p}}
+<!--              {{form.as_p}}-->
           </div>
         </div>
     </div>
 {% endblock %}
 
 {% block footer-js %}
-<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
-<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'vendor/Buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'vendor/Buttons-1.6.1/js/buttons.bootstrap4.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'vendor/Buttons-1.6.1/js/buttons.html5.min.js' %}"></script>

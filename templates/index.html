@@ -35,23 +35,36 @@
                         {% if e.status == 1 %}
                                 <span class="badge badge-info">未提交</span>
                         {% elif e.status == 2 %}
+                            {% if group == 'AUDIT' and user != 'wangjd' %}
+                                <span class="badge badge-info"><a href="{% url 'audit:audit' issue_id=e.issue_id action=5 %}">审核</a></span>
+                            {% else %}
                                 <span class="badge badge-info">待审核</span>
+                            {% endif %}
                         {% elif e.status == 3 %}
+                            {% if user == 'wangjd' %}
+                                <span class="badge badge-warning"><a href="{% url 'audit:audit' issue_id=e.issue_id action=5 %}">审核</a></span>
+                            {% else %}
                                 <span class="badge badge-warning">审核一</span>
+                            {% endif %}
                         {% elif e.status == 4 %}
-                            <span class="badge badge-warning"><a href="">审核二</a></span>
+                            {% if group == 'DBA' %}
+                            <span class="badge badge-warning"><a href="{% url 'audit:audit' issue_id=e.issue_id action=5 %}">执行</a></span>
+                            {% else %}
+                                <span class="badge badge-warning">审核二</span>
+                            {% endif %}
                         {% elif e.status == 5 %}
                                 <span class="badge badge-success">已执行</span>
                         {% elif e.status == 6 %}
                                 <span class="badge badge-secondary">已驳回</span>
                         {% endif %}
+
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
               {% elif group == 'AUDIT' %}
-                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                   <table class="table table-bordered" id="dataTable_1" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th width="20%">标题</th>
@@ -90,7 +103,7 @@
                 </tbody>
             </table>
               {% elif group == 'DEV' %}
-                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                   <table class="table table-bordered" id="dataTable_2" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th width="20%">标题</th>
@@ -113,11 +126,23 @@
                         {% if e.status == 1 %}
                                 <span class="badge badge-info">未提交</span>
                         {% elif e.status == 2 %}
-                                <span class="badge badge-info">未审核</span>
+                            {% if group == 'AUDIT' and user != 'wangjd' %}
+                                <span class="badge badge-info"><a href="{% url 'audit:audit' issue_id=e.issue_id action=3 %}">审核</a></span>
+                            {% else %}
+                                <span class="badge badge-info">待审核</span>
+                            {% endif %}
                         {% elif e.status == 3 %}
+                            {% if user == 'wangjd' %}
+                                <span class="badge badge-warning"><a href="{% url 'audit:audit' issue_id=e.issue_id action=4 %}">审核</a></span>
+                            {% else %}
                                 <span class="badge badge-warning">审核一</span>
+                            {% endif %}
                         {% elif e.status == 4 %}
-                            <span class="badge badge-warning"><a href="">审核二</a></span>
+                            {% if group == 'DBA' %}
+                                <span class="badge badge-warning"><a href="{% url 'audit:audit' issue_id=e.issue_id action=5 %}">执行</a></span>
+                            {% else %}
+                                <span class="badge badge-warning">审核二</span>
+                            {% endif %}
                         {% elif e.status == 5 %}
                                 <span class="badge badge-success">已执行</span>
                         {% elif e.status == 6 %}

@@ -1,8 +1,9 @@
 import time
+import datetime
 
 from django.contrib.auth.models import Group, Permission, User
 from django.db.models import Q
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, FormView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -69,6 +70,7 @@ class IndexView(LoginRequiredMixin, TemplateView):
 
             context['issue_lists'] = issue_lists
             context['group'] = current_group_set
+            context['user'] = str(current_user_set)
 
             # print(context)
             return context
@@ -99,5 +101,30 @@ class SuccessView(LoginRequiredMixin, TemplateView):
     template_name = 'success.html'
 
 
-class AuditView(LoginRequiredMixin, View):
-    pass
+class AuditView(View):
+
+    def get(self, request, issue_id, action):
+
+        audit_time = datetime.datetime.now()
+
+        # print(audit_time)
+        # print(issue_id,type(issue_id))
+        # print(action,type(action))
+
+        # 查询对应记录
+        queryset = Issue.objects.get(issue_id=issue_id)
+
+        try:
+            # 更新状态
+            queryset.audit_time = audit_time
+            queryset.status = action
+            queryset.save()
+            return JsonResponse({'status': 'success'})
+        except Exception as e:
+            print(e)
+            return JsonResponse({'status': 'failed'})
+
+
+
+
+
